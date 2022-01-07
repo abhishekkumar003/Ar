@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D </title>
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .demo{
+            height: 100vh;
+            width: 100%;
+        }
+
+        .demo model-viewer{
+            width: 100%;
+            height: 100%;
+        }
+
+        .btn{
+            position: absolute;
+            bottom: 50px;
+            width: 100%;
+            text-align: center;
+        }
+
+        button{
+            border: none;
+            background: #edda73;
+            height: 40px;
+            width: 150px;
+            margin: 5px 15px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        button:focus{
+            outline: none;
+
+        }
+    </style>
+
+</head>
+
+<body>
+    
+    <div class="demo">
+        <model-viewer
+            src="RobotExpressive.glb" id="model"  camera-controls 
+            skybox-image="stadium_01_4k.hdr" animation-name="Wave" autoplay ar>
+        </model-viewer>
+
+        <div class="btn">
+            <button type="button" onclick="stop()">STOP</button>
+            <button type="button" onclick="run()">RUN</button>
+            <button type="button" onclick="wave()">WAVE</button>
+        </div>
+    </div>
+
+
+    <script>
+
+        const model = document.getElementById('model');
+        
+        function stop(){
+            model.animationName = 'none';
+        }
+
+        function run(){
+            model.animationName = 'Running';
+        }
+
+        function wave(){
+            model.animationName = 'Wave';
+        }
+
+    </script>
+
+</body>
+
+</html>
